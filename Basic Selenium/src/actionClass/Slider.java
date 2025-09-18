@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class Slider {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		WebDriver driver=new ChromeDriver();
 		driver.manage().window().maximize();
@@ -24,10 +24,18 @@ public class Slider {
 		WebElement slider=driver.findElement(By.id("slider"));
 
 		Actions act=new Actions(driver);
-		act.moveToElement(slider,50,0).click().build().perform();
+		act.moveToElement(slider,50,0)
+		.pause(Duration.ofSeconds(3))
+		.click()
+		.build()
+		.perform();
 		
 		//right click of mouse
 		act.contextClick().build().perform();
+		
+		Thread.sleep(3000);
+		
+		driver.quit();
 		
 	}
 }

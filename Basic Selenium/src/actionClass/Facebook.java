@@ -31,7 +31,7 @@ public class Facebook {
 		act.click(pwd).keyDown(Keys.CONTROL)
 		.sendKeys("v")
 		.keyUp(Keys.CONTROL)
-		.build().perform();
+		.perform();
 		
 		pwd.sendKeys(args);
 		
